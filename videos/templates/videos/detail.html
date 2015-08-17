@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Video.js Test | akiyoko blog</title>
+  <link href="{% static "videos/css/video-js.min.css" %}" rel="stylesheet">
+  <script src="{% static "videos/js/video.js" %}"></script>
+  <script src="{% static "videos/js/videojs-media-sources.js" %}"></script>
+  <script src="{% static "videos/js/videojs.hls.min.js" %}"></script>
+  <script type="text/javascript">
+    videojs.options.flash.swf = "{% static "videos/js/video-js.swf" %}";
+  </script>
+</head>
+<body>
+<video id="test" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="640" height="360" data-setup="{}">
+  <source src="/videos/get_playlist/{{ video.id }}" type="application/x-mpegURL">
+</video>
+</body>
+</html>
